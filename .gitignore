@@ -1,0 +1,16 @@
+# Sistema operacional
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+
+# Dependências e builds locais, caso sejam adicionados futuramente
+node_modules/
+dist/
+build/
+
+# Logs
+*.log

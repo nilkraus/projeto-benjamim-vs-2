@@ -80,6 +80,7 @@ const galleryItems = [
   { type: "image", src: "assets/images/galeria-jogos.png", alt: "Crianças participando de jogos educativos" },
   { type: "image", src: "assets/images/galeria-oracao.png", alt: "Momento de oração com as crianças" },
   { type: "image", src: "assets/images/galeria-refeicao.png", alt: "Refeição servida às crianças" },
+  { type: "image", src: "assets/images/brincadeira-criancas.png", alt: "Crianças participando de brincadeiras no projeto" },
   {
     type: "youtube",
     src: "https://www.youtube.com/embed/Ifcvj3A7NtE",

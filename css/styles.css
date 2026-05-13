@@ -1519,6 +1519,21 @@
       line-height: 1.65;
     }
 
+    .legal-content h2 {
+      margin: 28px 0 10px;
+      color: var(--blue);
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .legal-content ul {
+      margin: 0 0 18px 22px;
+      padding: 0;
+      color: #172039;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
     .pix-modal {
       position: fixed;
       inset: 0;

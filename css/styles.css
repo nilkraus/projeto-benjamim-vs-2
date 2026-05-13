@@ -327,6 +327,7 @@
       position: relative;
       isolation: isolate;
       min-height: 390px;
+      overflow: hidden;
       background: linear-gradient(103deg, #fff8e9 0 38%, #fff 38% 100%);
     }
 
@@ -343,7 +344,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 42% 58%;
+      grid-template-columns: 43% 57%;
       min-height: 390px;
       align-items: center;
     }
@@ -415,12 +416,15 @@
     }
 
     .hero-art {
-      align-self: stretch;
-      position: relative;
-      min-height: 390px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 58vw;
+      min-width: 680px;
+      min-height: 0;
       overflow: hidden;
-      margin-left: -72px;
-      margin-right: calc((100vw - min(1120px, calc(100vw - 48px))) / -2);
+      margin: 0;
     }
 
     .hero-art::before {
@@ -430,14 +434,14 @@
       z-index: 2;
       pointer-events: none;
       background:
-        linear-gradient(102deg, #fff 0%, rgba(255,255,255,.96) 10%, rgba(255,255,255,.72) 22%, rgba(255,255,255,.28) 36%, rgba(255,255,255,0) 52%),
-        linear-gradient(180deg, rgba(255,248,233,.16), rgba(255,248,233,.28));
+        linear-gradient(100deg, #fff 0%, rgba(255,255,255,.98) 11%, rgba(255,255,255,.78) 24%, rgba(255,255,255,.34) 39%, rgba(255,255,255,0) 58%),
+        linear-gradient(180deg, rgba(255,248,233,.12), rgba(255,248,233,.32));
     }
 
     .hero-image {
       position: absolute;
-      inset: 0 -20px 0 0;
-      width: calc(100% + 20px);
+      inset: 0;
+      width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center center;
@@ -1832,6 +1836,9 @@
       .hero-grid { grid-template-columns: 1fr; }
       .hero-copy { padding: 34px 0 22px; }
       .hero-art {
+        position: relative;
+        width: 100%;
+        min-width: 0;
         min-height: 330px;
         margin-left: 0;
         margin-right: 0;

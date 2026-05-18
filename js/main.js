@@ -337,9 +337,8 @@ document.querySelector(".js-share-page").addEventListener("click", () => {
 
 const form = document.querySelector(".contact-form");
 const note = document.querySelector(".form-note");
-const projectEmail = "nilmarakrause@hotmail.com";
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (!form.checkValidity()) {
     note.textContent = "Preencha nome, e-mail e mensagem para continuar.";
@@ -348,19 +347,27 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  const data = new FormData(form);
-  const subject = encodeURIComponent("Contato pelo site - Projeto Social Benjamim");
-  const body = encodeURIComponent(
-    `Nome: ${data.get("nome")}\n` +
-    `E-mail: ${data.get("email")}\n` +
-    `Telefone / WhatsApp: ${data.get("telefone") || "Não informado"}\n\n` +
-    `Mensagem:\n${data.get("mensagem")}\n\n` +
-    "Responsável: Pastor Linaldo Guerra - Primeira Igreja Batista de Pilar"
-  );
+  note.textContent = "Enviando mensagem...";
+  note.style.color = "var(--blue)";
 
-  window.location.href = `mailto:${projectEmail}?subject=${subject}&body=${body}`;
-  note.textContent = "Seu aplicativo de e-mail foi aberto com a mensagem preenchida.";
-  note.style.color = "var(--green-2)";
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+
+    if (!response.ok) {
+      throw new Error("Falha no envio");
+    }
+
+    form.reset();
+    note.textContent = "Mensagem enviada com sucesso. Em breve entraremos em contato.";
+    note.style.color = "var(--green-2)";
+  } catch (error) {
+    note.textContent = "Não foi possível enviar agora. Verifique se o link do Formspree foi configurado corretamente.";
+    note.style.color = "#c0392b";
+  }
 });
 
 const backToTop = document.querySelector(".back-to-top");
